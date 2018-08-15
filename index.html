@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Search</title>
+	<link rel="stylesheet" href="css.css">
+  <!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/css/uikit.min.css" />
+
+<!-- UIkit JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit-icons.min.js"></script>
+</head>
+
+
+
+
+<!-- heading -->
+<body>
+<a class="uk-button uk-button-primary" href="#modal-center" uk-toggle>Subscribed resources</a>
+
+<div id="modal-center" class="uk-flex-center" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+
+        <p>Subscribed Resources - a list of licensed scientific databases that contain full-text resources from various fields of knowledge, which can be used  in the NaUKMA local network or by login and password. List of subscribed resources is in alphabetical order (from A to Z).</p>
+
+    </div>
+</div>
+<!-- end heading -->
+<hr>
+
+<!-- form -->
+  <div class="wrap">
+    <div><img class="logo1" src="http://www.inside-online.de/files/inside-online/Weitere%20Ablagen/Icons/Vorteile/icon_a-bis-z.png" /></div>
+  
+  <div id="searchbox">
+    <br />
+    <span class="ebscohost-title " style="font-weight:bold; color: white; margin-left: 20px;">Search A-Z databases</span>
+    <form name="sform" id="sform" action="javascript:searchPlus(this);">
+
+      <select name="SearchSource" onchange="jsDropDown(this.value)">
+      
+			<option value="agora" selected="selected">AGORA</option>
+			<option value="ardi">ARDI</option>
+			<option value="cambridge">Cambridge Journals</option>
+      <option value="dg">Digital Literacy*</option>
+      <option value="galeacademicof">GALE Academic OneFile*</option>
+      <option value="gale">GALE Opposing Viewpoints in Context* </option>
+      <option value="galeresearch">GALE Research in Context* </option>
+      <option value="goali">GOALI</option>
+      <option value="hein">HeinOnline</option>
+      <option value="hinari">HINARI</option>
+      <option value="jstor">JSTOR*</option>
+      <option value="oare">OARE</option>
+      <option value="pressreader">PressReader*</option>
+      <option value="scopus">Scopus</option>
+      <option value="wos">Web of Science</option>
+	    </select>
+
+      <!-- Authentication and Profile Values -->
+      <input type="text" size="30" id="query" name="query" placeholder="Find books, journal articles">
+      
+      <!-- button -->
+      <button type="submit"><span uk-icon="search"></span></button>
+      <!-- end button -->
+    
+
+    </form>
+      <!-- end form -->
+  </div>
+
+  </div>
+<hr>
+
+<!--EBSCO-->
+<div class="wrap">
+<img class="logo2" src="https://pbs.twimg.com/profile_images/954372661626507265/V2SnwxiO.jpg" alt="">
+
+<!-- EBSCOhost Custom Search Box Begins -->
+<script src="https://support.ebscohost.com/eit/scripts/ebscohostsearch.js" type="text/javascript"></script>
+
+  <form class="ebscohostCustomSearchBox" action="" onsubmit="return ebscoHostSearchGo(this);" method="post" style="overflow:hidden;">
+    <input id="ebscohostwindow" name="ebscohostwindow" type="hidden" value="1" />
+    <input id="ebscohosturl" name="ebscohosturl" type="hidden" value="http://search.ebscohost.com/login.aspx?direct=true&scope=site&type=1&site=ehost-live&lang=en&authtype=ip,user" />
+    <input id="ebscohostsearchsrc" name="ebscohostsearchsrc" type="hidden" value="db" />
+    <input id="ebscohostsearchmode" name="ebscohostsearchmode" type="hidden" value="+" />
+    <input id="ebscohostkeywords" name="ebscohostkeywords" type="hidden" value="" />
+    
+    <div>
+      <div class="sfield">
+        <span class="ebscohost-title " style="font-weight:bold; color: white;">Search EBSCO databases</span>
+
+        <div>
+          <input id="ebscohostsearchtext" class="" name="ebscohostsearchtext" type="text" size="23" style="margin-left: 10px;" placeholder="Find books, journal articles"/>
+          
+      <!-- button -->
+      <button type="submit" value="Search" class="ebscohost-search-button "><span uk-icon="search"></span></button>
+      <!-- end button -->
+      
+        </div>
+
+      </div>
+
+    </div>
+
+    <div id="limiterblock" style="margin-left:-px; overflow: auto; display:none;">
+      <div id="limitertitle" style="font-weight:bold;padding-top:25px;padding-bottom:5px; display:none;">Limit Your Results</div>
+      
+      <div class="limiter" style="display:none;">
+        <input type="checkbox" id="chkFullText" name="chkFullText"  />
+        <label for="chkFullText">Full Text</label>
+      </div>
+      
+      <div class="limiter" style="display:none;">
+        <input type="checkbox" id="chkReferencesAvailable" name="chkReferencesAvailable"  />
+        <label for="chkReferencesAvailable">References Available</label>
+      </div>
+      
+      <div class="limiter" style="display:none;">
+        <input type="checkbox" id="chkPeerReviewed" name="chkPeerReviewed"  />
+        <label for="chkPeerReviewed">Peer Reviewed</label>
+      </div>
+      
+    </div>
+    
+    
+
+    
+    <div id="databaseblock" style="float:left;margin:0;padding:0;padding-left:4px; display:none;">
+      <ul class="choose-db-list">
+        <li class="summary">
+          <span class="choose-db-check" title="Select / Deselect all">
+            <input type="checkbox" onclick="SelectAllCheckBoxes(this);" name="cball" id="cball"/>
+          </span>
+          <div class="choose-db-detail">
+            <span style="font-weight:bold;color:#FFFFFF;font-size:9pt;"> Select / Deselect all</span>
+          </div>
+        </li>
+        
+        <li id="tr6" class="two">
+          <span class="choose-db-check" title="Academic Search Premier">
+            <input type="checkbox" id="cb6" name="cbs" value="aph" checked="checked" />
+          </span>
+          <div class="choose-db-detail">
+            <a href="http://search.ebscohost.com/login.aspx?&site=ehost-live&db=aph&lang=en&authtype=ip,user">Academic Search Premier</a>
+          </div>
+        </li>
+        
+        <li id="tr18" class="two">
+          <span class="choose-db-check" title="AHFS Consumer Medication Information">
+            <input type="checkbox" id="cb18" name="cbs" value="l0h" checked="checked" />
+          </span>
+          <div class="choose-db-detail">
+            <a href="http://search.ebscohost.com/login.aspx?&site=ehost-live&db=l0h&lang=en&authtype=ip,user">AHFS Consumer Medication Information</a>
+          </div>
+        </li>
+        
+        <li id="tr128" class="two">
+          <span class="choose-db-check" title="Business Source Premier">
+            <input type="checkbox" id="cb128" name="cbs" value="buh" checked="checked" />
+          </span>
+          <div class="choose-db-detail">
+            <a href="http://search.ebscohost.com/login.aspx?&site=ehost-live&db=buh&lang=en&authtype=ip,user">Business Source Premier</a>
+          </div>
+        </li>
+        
+        <li id="tr283" class="one">
+          <span class="choose-db-check" title="ERIC">
+            <input type="checkbox" id="cb283" name="cbs" value="eric" checked="checked" />
+          </span>
+          <div class="choose-db-detail">
+            <a href="http://search.ebscohost.com/login.aspx?&site=ehost-live&db=eric&lang=en&authtype=ip,user">ERIC</a>
+          </div>
+        </li>
+        
+        <li id="tr325" class="one">
+          <span class="choose-db-check" title="GreenFILE">
+            <input type="checkbox" id="cb325" name="cbs" value="8gh" checked="checked" />
+          </span>
+          <div class="choose-db-detail">
+            <a href="http://search.ebscohost.com/login.aspx?&site=ehost-live&db=8gh&lang=en&authtype=ip,user">GreenFILE</a>
+          </div>
+        </li>
+        
+        <li id="tr333" class="one">
+          <span class="choose-db-check" title="Health Source - Consumer Edition">
+            <input type="checkbox" id="cb333" name="cbs" value="hxh" checked="checked" />
+          </span>
+          <div class="choose-db-detail">
+            <a href="http://search.ebscohost.com/login.aspx?&site=ehost-live&db=hxh&lang=en&authtype=ip,user">Health Source - Consumer Edition</a>
+          </div>
+        </li>
+        
+        <li id="tr334" class="two">
+          <span class="choose-db-check" title="Health Source: Nursing/Academic Edition">
+            <input type="checkbox" id="cb334" name="cbs" value="hch" checked="checked" />
+          </span>
+          <div class="choose-db-detail">
+            <a href="http://search.ebscohost.com/login.aspx?&site=ehost-live&db=hch&lang=en&authtype=ip,user">Health Source: Nursing/Academic Edition</a>
+          </div>
+        </li>
+        
+        <li id="tr412" class="two">
+          <span class="choose-db-check" title="MasterFILE Premier">
+            <input type="checkbox" id="cb412" name="cbs" value="f5h" checked="checked" />
+          </span>
+          <div class="choose-db-detail">
+            <a href="http://search.ebscohost.com/login.aspx?&site=ehost-live&db=f5h&lang=en&authtype=ip,user">MasterFILE Premier</a>
+          </div>
+        </li>
+        
+        <li id="tr440" class="two">
+          <span class="choose-db-check" title="Newspaper Source">
+            <input type="checkbox" id="cb440" name="cbs" value="nfh" checked="checked" />
+          </span>
+          <div class="choose-db-detail">
+            <a href="http://search.ebscohost.com/login.aspx?&site=ehost-live&db=nfh&lang=en&authtype=ip,user">Newspaper Source</a>
+          </div>
+        </li>
+        
+        <li id="tr468" class="two">
+          <span class="choose-db-check" title="Political Science Complete">
+            <input type="checkbox" id="cb468" name="cbs" value="poh" checked="checked" />
+          </span>
+          <div class="choose-db-detail">
+            <a href="http://search.ebscohost.com/login.aspx?&site=ehost-live&db=poh&lang=en&authtype=ip,user">Political Science Complete</a>
+          </div>
+        </li>
+        
+        <li id="tr496" class="two">
+          <span class="choose-db-check" title="Regional Business News Plus">
+            <input type="checkbox" id="cb496" name="cbs" value="rps" checked="checked" />
+          </span>
+          <div class="choose-db-detail">
+            <a href="http://search.ebscohost.com/login.aspx?&site=ehost-live&db=rps&lang=en&authtype=ip,user">Regional Business News Plus</a>
+          </div>
+        </li>
+        
+        <li id="tr551" class="one">
+          <span class="choose-db-check" title="Teacher Reference Center">
+            <input type="checkbox" id="cb551" name="cbs" value="trh" checked="checked" />
+          </span>
+          <div class="choose-db-detail">
+            <a href="http://search.ebscohost.com/login.aspx?&site=ehost-live&db=trh&lang=en&authtype=ip,user">Teacher Reference Center</a>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </form>
+
+      <div class="bracketlist">
+        <h1 class=brackets" style="font-size: 150px;
+  color: orange; margin-left: 50px;">}</h1>
+      </div>
+      <div>
+        <ul>
+          <li>Academic Search Premier</li>
+          <li>AHFS Consumer Medication Information</li>
+          <li>Business Source Premier</li>
+          <li>ERIC</li>
+          <li>GreenFILE</li>
+          <li>Health Source - Consumer Edition</li>
+          <li>Health Source: Nursing/Academic Edition</li>
+          <li>MasterFILE Premier</li>
+          <li>Newspaper Source</li>
+          <li>Political Science Complete</li>
+          <li>Regional Business News Plus</li>
+          <li>Teacher Reference Center</li>
+        </ul>
+      </div>
+  </div>
+  <!-- EBSCOhost Custom Search Box Ends -->
+<!--end EBSCO-->
+<hr>
+
+<footer>
+  <div class="wrap" style="margin-left: 50px;">
+    <div><p style="color:lightblue"> * Please note that <br> following resources only work with <br> login-password of eLibraryUSA:</p></div>
+    <div><ul>
+      <li>Digital Literacy</li>
+      <li>GALE Academic OneFile</li>
+      <li>GALE Opposing Viewpoints in Context</li>
+      <li>GALE Research in Context</li>
+      <li>JSTOR</li>
+      <li>PressReader</li>
+    </ul></div>
+    <div style="margin-left: 20px">
+      <p style="color:lightblue">You need to be logged in eLibraryUSA to search through these resources.</p>
+
+      <a href="http://www.aleksaweb.store/" target="_blank"><span uk-icon="icon: code"></span> aleksaweb.store , 2018</a></div>
+
+  </div>
+
+</footer>
+
+<script src="js.js"></script>
+</body>
+
+</html>
+	
+</body>
+</html>
