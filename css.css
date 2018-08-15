@@ -1,0 +1,61 @@
+body {
+  font-family: Verdana, Times, serif;
+  background: linear-gradient(90deg, #0D2645, #7F7A7A, #435B93);
+}
+
+#searchbox {
+    padding: 10px;
+}
+
+option {
+	cursor: pointer;
+}
+
+#query, #ebscohostsearchtext, .sfield, select, button {
+	padding: 10px;
+	border-radius: 20px;
+	margin: 30px 0px 0px 20px;
+	border: none;
+	cursor: pointer;
+}
+
+.wrap {
+	display: flex;
+	flex-direction: row;
+}
+
+.logo1, .logo2 {
+	height: 150px;
+	width: 150px;
+	margin: 0px 20px 20px 20px;
+	border-radius: 80px;
+}
+
+h2 {
+	padding-top: 20px;
+}
+li {
+	list-style: none;
+	color: white;
+}
+
+@media screen and (max-width:600px){
+  .logo1, .logo2 {
+  	width: 40px;
+  	height: 40px;
+  }
+  .wrap {
+	display: flex;
+	flex-direction: column;
+}
+
+}
+
+@media screen and (min-width:1025px){
+  .logo1 {
+  	width: 150px;
+  }
+}
+
+.logo1 {height: auto;}
+
